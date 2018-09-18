@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
   before_action :current_ability, unless: :devise_controller?
   protect_from_forgery with: :exception
 
-  before_action :set_locale, :category_all
+  before_action :set_locale, :category_all, :load_search_product
 
-  rescue_from ActiveRecord::RecordNotFound, NoMethodError, with: :not_found?
+  # rescue_from ActiveRecord::RecordNotFound, NoMethodError, with: :not_found?
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
 
   def category_all
     @categories = Category.all
+  end
+
+  def load_search_product
+    @q = Product.ransack params[:q]
   end
 
   protected

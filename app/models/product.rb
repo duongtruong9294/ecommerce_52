@@ -16,16 +16,15 @@ class Product < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   scope :newest, ->{order created_at: :desc}
-  scope :search, ->(key, cat_id) do
-    where "name LIKE ? OR category_id = ?", "%#{key}%", "%#{cat_id}%"
-  end
-  scope :search_by_key, ->(key) do
+  scope :search_by_key, (lambda do |key|
     where "name LIKE ? ", "%#{key}%"
-  end
+  end)
   scope :of_category_id, ->(cat_id){where(category_id: cat_id)}
   scope :top_order, ->{order(number_of_order: :desc).limit Settings.top_order}
   scope :newest, ->{order(created_at: :desc).limit Settings.product_recent}
-  scope :by_category, ->(category_id){where category_id: category_id if category_id.present?}
+  scope :by_category, (lambda do |category_id|
+    where(category_id: category_id)
+  end)
   scope :by_name, ->(name){where "name LIKE ?", "%#{name}%" if name.present?}
   scope :by_min_price, ->(min){where "price >= #{min}" if min.present?}
   scope :by_max_price, ->(max){where "price <= #{max}" if max.present?}

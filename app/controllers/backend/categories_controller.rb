@@ -3,12 +3,9 @@ class Backend::CategoriesController < Backend::BaseController
   before_action :load_selects, only: %i(edit new)
 
   def index
-    @categories = if params[:search].present?
-                    Category.search params[:search]
-                  else
-                    Category
-                  end.newest.paginate page: params[:page],
-                     per_page: Settings.per_category
+    @q = Category.newest.ransack(params[:q])
+    @categories = @q.result(distinct: true).paginate page: params[:page],
+                per_page: Settings.per_category
   end
 
   def new
