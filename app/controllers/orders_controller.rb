@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  authorize_resource
   before_action :authenticate_user!
   before_action :correct_item, only: :destroy
 

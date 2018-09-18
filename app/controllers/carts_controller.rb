@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  load_and_authorize_resource class: false
   before_action :category_all, only: :viewcart
   before_action :load_product, :check_vaild_quanity?,
     :update_quantity, only: :update_quantity_in_cart

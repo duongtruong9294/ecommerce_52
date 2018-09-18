@@ -70,36 +70,41 @@ end
   name  = Faker::Name.name
   content = Faker::Lorem.sentence(5)
   Product.create!(name:  name,
-               price: rand(50..10000),
-               quantity: rand(5..30),
-               description: content,
-               picture: "default.png",
-               category_id: rand(10..23))
+                   price: rand(50..10000),
+                   quantity: rand(5..30),
+                   description: content,
+                   picture: "default.png",
+                   category_id: rand(10..23)
+                  )
 end
+
 User.create!(name:  "phuoctuyen",
-             email: "haphuoctuyen1997@gmail.com",
-             password: "11111111",
-             password_confirmation: "11111111",
-             address: "điện phước ,điện bàn , quảng nam",
-             phone: "01219399936"
+               email: "haphuoctuyen1997@gmail.com",
+               password: "11111111",
+               password_confirmation: "11111111",
+               address: "điện phước ,điện bàn , quảng nam",
+               phone: "01219399936",
+               confirmed_at: Time.now.utc
              )
 
 User.create!(name:  "duongtruong",
-             email: "duongtruong@gmail.com",
-             password: "foobar",
-             password_confirmation: "foobar",
-             role: 1,
-             address: "fdsfdsfdsfdsfdsfsdasdsad",
-             phone: "3454343242"
+               email: "duongtruong@gmail.com",
+               password: "foobar",
+               password_confirmation: "foobar",
+               role: 1,
+               address: "fdsfdsfdsfdsfdsfsdasdsad",
+               phone: "3454343242",
+               confirmed_at: Time.now.utc
              )
 
 User.create!(name:  "vanle",
-             email: "phamvanle@gmail.com",
-             password: "123123",
-             password_confirmation: "123123",
-             role: 1,
-             address: "quang nam",
-             phone: "01667272741"
+               email: "phamvanle@gmail.com",
+               password: "123123",
+               password_confirmation: "123123",
+               role: 1,
+               address: "quang nam",
+               phone: "01667272741",
+               confirmed_at: Time.now.utc
              )
 
 10.times do |n|
@@ -108,12 +113,13 @@ User.create!(name:  "vanle",
   password = "123123"
   content = Faker::Lorem.sentence(5)
   User.create!(name:  name,
-               email: email,
-               password: password,
-               password_confirmation: password,
-               role: 0,
-               address: content,
-               phone: "01667272741")
+                email: email,
+                password: password,
+                password_confirmation: password,
+                role: 0,
+                address: content,
+                phone: "01667272741",
+                confirmed_at: Time.now.utc)
 end
 
 p "Created #{User.count} users"
@@ -143,11 +149,6 @@ end
                   product_id: rand(1..10))
 
 end
-
-# # Category.create!(name:  "cccccccccccc",
-# #              parent_id: 1
-# #              )
-# p "Created #{Category.count} categoriess"
 
 Suggest.create!(name:  "San pham moi",
              description: "San pham hot",
