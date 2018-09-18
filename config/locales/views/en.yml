@@ -28,16 +28,29 @@ en:
   edit_title: "Edit User"
   total_price: "Total Price"
   users:
-    # new:
-    #   sign_up: "Sign Up"
-    #   text_white: "This will be a signup page for new users."
-    #   username: "Name"
-    #   email: "Email"
-    #   password: "Password"
-    #   password_confirmation: "Confirmation"
-    #   create: "Create my account"
-    #   address: "Address"
-    #   phone: "Phone"
+    mailer:
+      confirmation_instructions.html:
+        wellcome: "Welcome"
+        text: "You can confirm your account email through the link below:"
+        confirm_my_account: "Confirm my account"
+      email_changed.html:
+        hello: "Hello"
+        text_is_being_change: "We're contacting you to notify you that your email is being changed to"
+        text_has_been_change: "We're contacting you to notify you that your email has been changed to"
+      password_change.html:
+        hello: "Hello"
+        text: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions.html:
+        hello: "Hello"
+        text: "Someone has requested a link to change your password. You can do this through the link below."
+        change_password: "Change my password"
+        content: "If you didn't request this, please ignore this email."
+        change_password: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions.html:
+        hello: "Hello"
+        has_been_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        click_link: "Click the link below to unlock your account:"
+        unlock_my_account: "Unlock my account"
     registrations:
       new:
         username: "Name"
@@ -53,6 +66,7 @@ en:
         password: "Password"
         remember_me: "Remember_me"
         login: "Login"
+        forgot_password: "Forgot Password"
     passwords:
       edit:
         change_password: "Change your password"
