@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   SIGN_UP_PARAMS = [:name, :address, :phone, :email, :password,
     :password_confirmation].freeze
-  devise :database_authenticatable, :registerable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+    :confirmable, :recoverable, :lockable
   attr_accessor :remember_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

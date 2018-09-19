@@ -11,24 +11,21 @@
               <%= f.label t(".email") %><br />
               <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
             </div>
-
             <div class="field">
               <%= f.label t(".password") %><br />
               <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
             </div>
-
             <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.check_box :remember_me, class: "checkbox-control" %>
-                <%= f.label t(".remember_me"), class: "checkbox-control" %>
-              </div>
+            <div class="field">
+              <%= f.check_box :remember_me, class: "checkbox-control" %>
+              <%= f.label t(".remember_me"), class: "checkbox-control" %>
+            </div>
             <% end %>
-
             <div class="actions">
               <%= f.submit t(".login"), class: "btn btn-lg btn-success btn-block" %>
             </div>
           <% end %>
-          <%= render "users/shared/links" %>
+          <%= link_to t(".forgot_password"), new_user_password_path, id:"forget-password", class:"forget-password" %>
         </div>
       </div>
     </div>
