@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "static_pages#home"
   namespace :backend do
     get "/", to: "static_page#index"

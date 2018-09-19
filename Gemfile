@@ -10,6 +10,7 @@ gem "bootstrap-will_paginate", "1.0.0"
 gem "carrierwave", "~> 1.2", ">= 1.2.3"
 gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "devise"
 gem "faker", "1.7.3"
 gem "figaro"
 gem "font-awesome-rails"
@@ -31,7 +32,6 @@ gem "therubyracer"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate", "3.1.6"
-
 # gem "capistrano-rails", group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
