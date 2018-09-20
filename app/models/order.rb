@@ -27,4 +27,8 @@ class Order < ApplicationRecord
   def invoice_total tax_percent
     total_price + caculate_tax(tax_percent)
   end
+
+  def self.status_select
+    Order.statuses.map{|k, v| [k, v]}
+  end
 end

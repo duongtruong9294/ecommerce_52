@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  load_and_authorize_resource class: false
+  authorize_resource class: false
   before_action :category_all, only: :viewcart
   before_action :load_product, :check_vaild_quanity?,
     :update_quantity, only: :update_quantity_in_cart
@@ -85,7 +85,10 @@ class CartsController < ApplicationController
     session[:cart].each do |item|
       @total_price_cart = @total_price_cart.to_f + item["total_price"].to_f
     end
-    render(json: {message: @product, notice: t(".notice"), total_price_cart: @total_price_cart}) && return
+    render json: {
+      message: @product, notice: t(".notice"),
+      total_price_cart: @total_price_cart
+    }
   end
 
   def update_quantity

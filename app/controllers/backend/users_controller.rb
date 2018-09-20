@@ -5,18 +5,13 @@ class Backend::UsersController < Backend::BaseController
   def edit; end
 
   def index
-    @users = User.newest
-    @users = if params[:search].present?
-               @users.search(params[:search])
-             else
-               @users
-             end
-             .paginate page: params[:page],
+    @q = User.newest.ransack(params[:q])
+    @users = @q.result(distinct: true).paginate page: params[:page],
                 per_page: Settings.admin_user_perpage
   end
 
   def update
-    if @user.update_attributes user_params
+    if @user.update_without_password user_params
       flash[:success] = t ".user_updated"
       redirect_to backend_users_path
     else

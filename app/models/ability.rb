@@ -20,11 +20,13 @@ class Ability
     can :read, User, id: user.id
     can :update, User, id: user.id
     can :create, [Comment, Suggest]
+    can :update_quantity_in_cart, :cart
     can :manage, :cart
     can :manage, Order
   end
 
   def undified_user
     can :read, [Category, Product, Comment]
+    can :manage, :cart
   end
 end
