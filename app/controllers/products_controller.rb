@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
+  load_and_authorize_resource
   before_action :load_product, only: :show
-
   def index
     @products = Product.by_category(params[:category]).by_name(params[:name])
                        .by_min_price(params[:min]).by_max_price(params[:max])
