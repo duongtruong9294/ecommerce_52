@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :suggests, dependent: :destroy
-
+  acts_as_paranoid
   has_many :childs, class_name: Category.name, foreign_key: :parent_id,
    dependent: :destroy
 

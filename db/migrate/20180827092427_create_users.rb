@@ -17,6 +17,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer  :failed_attempts, :default => 0
       t.string   :unlock_token
       t.datetime :locked_at
+      t.datetime :deleted_at
       t.timestamps
     end
   add_index :users, :email, unique: true

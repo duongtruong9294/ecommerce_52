@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :picture
       t.integer :number_of_order, default: 0
       t.references :category, foreign_key: true
-
+      t.datetime :deleted_at
       t.timestamps
     end
   end

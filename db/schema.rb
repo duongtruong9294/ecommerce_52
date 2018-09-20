@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.integer "parent_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -23,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.text "content"
     t.integer "user_id"
     t.integer "product_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_comments_on_product_id"
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.float "price"
     t.integer "order_id"
     t.integer "product_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_order_items_on_order_id"
@@ -47,6 +50,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.float "total_price"
     t.integer "status", default: 0, null: false
     t.integer "user_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -60,6 +64,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.string "picture"
     t.integer "number_of_order", default: 0
     t.integer "category_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
@@ -69,6 +74,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.integer "score"
     t.integer "user_id"
     t.integer "product_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_rattings_on_product_id"
@@ -81,6 +87,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.integer "status", default: 0, null: false
     t.integer "user_id"
     t.integer "category_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_suggests_on_category_id"
@@ -104,6 +111,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_091945) do
     t.integer "failed_attempts", default: 0
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_digest"
