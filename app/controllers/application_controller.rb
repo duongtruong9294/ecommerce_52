@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     resource.admin? ? backend_path : root_path
   end
 
+  def admin_user?
+    redirect_to root_path unless current_user.admin?
+  end
+
   def category_all
     @categories = Category.all
   end

@@ -13,6 +13,7 @@ $(document).on('turbolinks:load', function () {
         },
         success: function (data) {
           var b = $(".glyphicon-shopping-cart").text("ORDERS "+ (i++));
+          alert(I18n.t('static_pages.home.add_cart_succsess'));
         }
       });
     });
