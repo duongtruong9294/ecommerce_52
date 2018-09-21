@@ -5,7 +5,7 @@ class User < ApplicationRecord
     :confirmable, :recoverable, :lockable
   attr_accessor :remember_token
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-
+  acts_as_paranoid
   before_save{email.downcase!}
 
   has_many :comments, dependent: :destroy

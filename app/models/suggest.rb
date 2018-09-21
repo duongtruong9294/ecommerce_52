@@ -1,7 +1,7 @@
 class Suggest < ApplicationRecord
   belongs_to :user
   belongs_to :category
-
+  acts_as_paranoid
   validates :user_id, presence: true
   validates :category_id, presence: true
   validates :name, presence: true, length: {maximum: Settings.maximum.name}

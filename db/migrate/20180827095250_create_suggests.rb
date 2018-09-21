@@ -6,7 +6,7 @@ class CreateSuggests < ActiveRecord::Migration[5.2]
       t.integer :status, null: false, default: 0
       t.references :user, foreign_key: true
       t.references :category, foreign_key: true
-
+      t.datetime :deleted_at
       t.timestamps
     end
   end
