@@ -43,6 +43,8 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "factory_bot_rails"
+  gem "rspec-rails"
   gem "sqlite3"
 end
 
@@ -60,7 +62,11 @@ end
 group :test do
   gem "capybara", ">= 2.15"
   gem "chromedriver-helper"
+  gem "database_cleaner"
+  gem "rails-controller-testing"
   gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 3.1"
+  gem "simplecov", require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
